@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MEIKO × NEXCUBE — 2026年4月 韓国訪問</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F7F6F2;
+  --surface: #FFFFFF;
+  --border: #E2E0D8;
+  --text-primary: #1A1917;
+  --text-secondary: #6B6860;
+  --text-tertiary: #A09E9A;
+  --accent: #3B36C8;
+  --accent-light: #EEEDFE;
+  --accent-text: #3C3489;
+  --day1: #0C447C;
+  --day1-light: #E6F1FB;
+  --day2: #1A5C3A;
+  --day2-light: #EAF3DE;
+  --font-sans: 'Noto Sans JP', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+.hero {
+  background: var(--text-primary);
+  color: #fff;
+  padding: 4rem 2rem 3.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,.04) 39px, rgba(255,255,255,.04) 40px),
+  repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,.04) 39px, rgba(255,255,255,.04) 40px);
+}
+.hero-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+.hero-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .14em;
+  color: rgba(255,255,255,.5);
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+.hero h1 {
+  font-size: clamp(26px, 5vw, 42px);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  letter-spacing: -.02em;
+}
+.hero h1 span { color: #A3A0F8; }
+.hero-dates {
+  display: inline-flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+.date-pill {
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 999px;
+  padding: 5px 16px;
+  color: rgba(255,255,255,.85);
+}
+
+.container { max-width: 900px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; }
+.section { margin-bottom: 3rem; }
+.section-label {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -.02em;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 2px;
+  background: var(--accent-light);
+  border-radius: 2px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: .75rem;
+}
+
+.member-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: .6rem;
+}
+.member-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: .75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: border-color .15s, box-shadow .15s;
+}
+.member-card:hover {
+  border-color: #A3A0F8;
+  box-shadow: 0 0 0 3px var(--accent-light);
+}
+.avatar {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: var(--accent-light);
+  color: var(--accent-text);
+  font-size: 11px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.member-name { font-size: 14px; font-weight: 700; }
+.member-name-en { font-family: var(--font-mono); font-size: 11px; color: var(--text-tertiary); }
+.member-role { font-size: 12px; color: var(--text-secondary); margin-top: 2px; line-height: 1.4; }
+
+.schedule-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
+.day-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+.day-header { padding: .85rem 1.25rem; display: flex; align-items: center; gap: 10px; }
+.day-header.d1 { background: var(--day1); color: #fff; }
+.day-header.d2 { background: var(--day2); color: #fff; }
+.day-header-label { font-size: 14px; font-weight: 700; }
+.day-header-sub { font-size: 12px; opacity: .7; margin-top: 1px; }
+.timeline { padding: .25rem 0; }
+.tl-item { display: flex; gap: 0; border-bottom: 1px solid var(--border); }
+.tl-item:last-child { border-bottom: none; }
+.tl-time {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-tertiary);
+  min-width: 64px;
+  width: 64px;
+  flex-shrink: 0;
+  padding: .6rem .5rem .6rem 1rem;
+  border-right: 1px solid var(--border);
+  display: flex;
+  align-items: flex-start;
+  padding-top: .65rem;
+}
+.tl-content { padding: .55rem .9rem; flex: 1; }
+.tl-title { font-size: 14px; font-weight: 500; color: var(--text-primary); }
+.tl-sub { font-size: 12px; color: var(--text-secondary); margin-top: 2px; line-height: 1.45; }
+
+.comma-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
+.comma-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.1rem 1.25rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color .15s;
+}
+.comma-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px; height: 100%;
+  background: var(--accent);
+}
+.comma-card:hover { border-color: #A3A0F8; }
+.comma-tag {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  color: var(--accent-text);
+  background: var(--accent-light);
+  padding: 4px 14px;
+  border-radius: 6px;
+  display: inline-block;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+.comma-time { font-family: var(--font-mono); font-size: 15px; color: var(--text-secondary); font-weight: 500; margin-bottom: 8px; }
+.comma-title { font-size: 14px; font-weight: 700; margin-bottom: 5px; line-height: 1.4; }
+.comma-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.55; margin-bottom: 8px; }
+.comma-people { font-size: 12px; color: var(--text-tertiary); }
+.comma-people strong { color: var(--text-secondary); }
+
+.info-table { width: 100%; }
+.info-row {
+  display: flex;
+  gap: 12px;
+  padding: .6rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+.info-row:last-child { border-bottom: none; }
+.info-key {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-tertiary);
+  min-width: 90px;
+  padding-top: 1px;
+}
+.info-val { color: var(--text-primary); flex: 1; }
+.info-val .place {
+  display: inline-block;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1px 7px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-secondary);
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+.attend-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.attend-table {
+  border-collapse: collapse;
+  font-size: 13px;
+  width: 100%;
+  min-width: 700px;
+  table-layout: fixed;
+}
+.attend-table col.col-name { width: 88px; }
+.attend-table col.col-item { width: 86px; }
+.attend-table th {
+  background: var(--bg);
+  padding: 8px 6px;
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.attend-table th:first-child { text-align: left; padding-left: 12px; }
+.attend-table td {
+  padding: 7px 6px;
+  border: 1px solid var(--border);
+  text-align: center;
+  color: var(--text-primary);
+  overflow: hidden;
+}
+.attend-table td:first-child { text-align: left; font-weight: 500; padding-left: 12px; font-size: 13px; }
+.attend-table tr:nth-child(even) td { background: #FAFAF8; }
+.dot {
+  display: inline-block;
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.attend-table tr.meiko-row td { background: #FFFBF0; }
+.attend-table tr.meiko-row td:first-child { color: #1A5C3A; }
+.attend-table tr.meiko-row .dot { background: #1A5C3A; }
+
+footer {
+  background: var(--text-primary);
+  color: rgba(255,255,255,.4);
+  text-align: center;
+  padding: 2rem;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .06em;
+}
+
+@media (max-width: 640px) {
+  .schedule-grid, .comma-grid { grid-template-columns: 1fr; }
+  .member-grid { grid-template-columns: 1fr 1fr; }
+  .hero { padding: 3rem 1.25rem 2.5rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">NEXCUBE × MEIKO</div>
+    <h1>明光義塾 2026年4月<br><span>韓国訪問スケジュール</span>案内</h1>
+    <div class="hero-dates">
+      <div class="date-pill">4月27日（月）</div>
+      <div class="date-pill">4月28日（火）</div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- MEMBERS -->
+  <div class="section">
+    <div class="section-label">訪問団メンバー · MEIKO 8名</div>
+    <div class="member-grid">
+      <div class="member-card">
+        <div class="avatar">斎藤</div>
+        <div>
+          <div class="member-name">齋藤 勝己</div>
+          <div class="member-name-en">KATSUKI SAITOU</div>
+          <div class="member-role">明光義塾 本部長</div>
+        </div>
+      </div>
+      <div class="member-card">
+        <div class="avatar">浅水</div>
+        <div>
+          <div class="member-name">浅水 真人</div>
+          <div class="member-name-en">MAHITO ASAMIZU</div>
+          <div class="member-role">明光義塾 副本部長</div>
+        </div>
+      </div>
+      <div class="member-card">
+        <div class="avatar">遠藤</div>
+        <div>
+          <div class="member-name">遠藤 一弥</div>
+          <div class="member-name-en">KAZUYA ENDOU</div>
+          <div class="member-role">ITプロキュアメント部長</div>
+        </div>
+      </div>
+      <div class="member-card">
+        <div class="avatar">岡</div>
+        <div>
+          <div class="member-name">岡 一樹</div>
+          <div class="member-name-en">KAZUKI OKA</div>
+          <div class="member-role">情報システム部長</div>
+        </div>
+      </div>
+      <div class="member-card">
+        <div class="avatar">伊藤</div>
+        <div>
+          <div class="member-name">伊藤 佑将</div>
+          <div class="member-name-en">YUUSUKE ITOU</div>
+          <div class="member-role">事業戦略室長</div>
+        </div>
+      </div>
+      <div class="member-card">
+        <div class="avatar">岩本</div>
+        <div>
+          <div class="member-name">岩本 健佑</div>
+          <div class="member-name-en">KENSUKE IWAMOTO</div>
+          <div class="member-role">オペレーション部長</div>
+        </div>
+      </div>
+      <div class="member-card">
+        <div class="avatar">松尾</div>
+        <div>
+          <div class="member-name">松尾 圭一</div>
+          <div class="member-name-en">KEIICHI MATSUO</div>
+          <div class="member-role">東海北陸カンパニープレジデント</div>
+        </div>
+      </div>
+      <div class="member-card">
+        <div class="avatar">奥村</div>
+        <div>
+          <div class="member-name">奥村 直城</div>
+          <div class="member-name-en">NAOKI OKUMURA</div>
+          <div class="member-role">未来教育開発室長</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCHEDULE -->
+  <div class="section">
+    <div class="section-label">全体スケジュール</div>
+    <div class="schedule-grid">
+      <div class="day-card">
+        <div class="day-header d1">
+          <div>
+            <div class="day-header-label">4月27日（月）</div>
+            <div class="day-header-sub">テチ校舎訪問 → 夕食</div>
+          </div>
+        </div>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-time">08:40</div>
+            <div class="tl-content"><div class="tl-title">羽田出発</div></div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-time">11:05</div>
+            <div class="tl-content"><div class="tl-title">金浦到着</div></div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-time">12:00</div>
+            <div class="tl-content">
+              <div class="tl-title">ロッテシティホテル九老</div>
+              <div class="tl-sub">チェックイン・移動</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-time">15:00</div>
+            <div class="tl-content">
+              <div class="tl-title">校舎訪問 · テチ</div>
+              <div class="tl-sub">相談管理プログラム案内 · 教室空間案内<br>EduCube管理事例紹介 · Q&A</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-time">18:00~</div>
+            <div class="tl-content">
+              <div class="tl-title">夕食</div>
+              <div class="tl-sub">テチ校舎近辺</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="day-card">
+        <div class="day-header d2">
+          <div>
+            <div class="day-header-label">4月28日（火）</div>
+            <div class="day-header-sub">本社会議 + 公徳2校舎訪問 + 夕食</div>
+          </div>
+        </div>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-time">11:00</div>
+            <div class="tl-content">
+              <div class="tl-title">A Comma — Encourage</div>
+              <div class="tl-sub">Human Touch関連インカレッジ事例共有・ディスカッション</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-time">12:30</div>
+            <div class="tl-content">
+              <div class="tl-title">昼食</div>
+              <div class="tl-sub">本社近辺</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-time">14:00</div>
+            <div class="tl-content">
+              <div class="tl-title">B Comma — AI活用企業変革</div>
+              <div class="tl-sub">AIを活用した企業の姿 + IT本部の業務効率化</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-time">15:00</div>
+            <div class="tl-content">
+              <div class="tl-title">公徳2校舎訪問（別途）</div>
+              <div class="tl-sub">小松原オーナー · ホン・ジヘン、キム・ミジョン、チョン・スア担当</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-time">15:30</div>
+            <div class="tl-content">
+              <div class="tl-title">C Comma — EDUCUBE</div>
+              <div class="tl-sub">EDUCUBEを通じた業務効率化とアプリ構造</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-time">17:30</div>
+            <div class="tl-content">
+              <div class="tl-title">D Comma — CUBION & Q&A</div>
+              <div class="tl-sub">CUBIONの業務フィードバック · AI Engine in EDUCUBE</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-time">18:30~</div>
+            <div class="tl-content">
+              <div class="tl-title">夕食（全員合流）</div>
+              <div class="tl-sub">本社近辺</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMMA SESSIONS -->
+  <div class="section">
+    <div class="section-label">4月28日 討議セッション</div>
+    <div class="comma-grid">
+      <div class="comma-card">
+        <div class="comma-tag">A Comma</div>
+        <div class="comma-time">11:00~12:30 · 1.5h</div>
+        <div class="comma-title">Encourage</div>
+        <div class="comma-desc">
+          Human Touch関連インカレッジを含む事例共有・ディスカッション
+        </div>
+        <div class="comma-people"><strong>参加者：</strong> CEO · HR · FC · 教育開発 · イ・スンヒョン · チョン・スア</div>
+      </div>
+      <div class="comma-card">
+        <div class="comma-tag">B Comma</div>
+        <div class="comma-time">14:00~15:30 · 1.5h · IT</div>
+        <div class="comma-title">AIを活用した企業の姿 + IT業務効率化</div>
+        <div class="comma-desc">
+          B-1 [CEO] AIを活用して変化する企業の姿とは？ — n8n, AI集中の月, IT生産性大会<br>
+          B-2 [IT チ・ジュンホ] IT本部の業務効率化 — IT組織変革とAI活用ITデザイン変化プロセス
+        </div>
+        <div class="comma-people"><strong>参加者：</strong> CEO · チ・ジュンホ · ナ・ホジョン · アン・ウンヒョン · (イ・ジェグン) · イ・スンヒョン</div>
+      </div>
+      <div class="comma-card">
+        <div class="comma-tag">C Comma</div>
+        <div class="comma-time">15:30~17:30 · 2h · IT</div>
+        <div class="comma-title">EDUCUBEを通じた業務効率化とアプリ構造</div>
+        <div class="comma-desc">
+          [IT ナ・ホジョン] for マネージャー / for 生徒<br>
+          リアルタイム連携 — 本社-院長-マネージャー-教室長-生徒-保護者-チューター
+        </div>
+        <div class="comma-people"><strong>参加者：</strong> CEO · チ・ジュンホ · ナ・ホジョン · アン・ウンヒョン · イ・ジェグン · イ・スンヒョン</div>
+      </div>
+      <div class="comma-card">
+        <div class="comma-tag">D Comma</div>
+        <div class="comma-time">17:30~18:30 · 1h · IT</div>
+        <div class="comma-title">CUBION & Q&A</div>
+        <div class="comma-desc">
+          [IT チ・ジュンホ] CUBIONの業務フィードバック · AI Engine in EDUCUBE
+        </div>
+        <div class="comma-people"><strong>参加者：</strong> CEO · チ・ジュンホ · ナ・ホジョン · アン・ウンヒョン · イ・スンヒョン</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GOMATSUBARA -->
+  <div class="section">
+    <div class="section-label">公徳2校舎訪問 · 小松原オーナー</div>
+    <div class="card">
+      <div class="info-table">
+        <div class="info-row">
+          <div class="info-key">訪問者</div>
+          <div class="info-val">小松原オーナーおよび教室長2名（計3名）</div>
+        </div>
+        <div class="info-row">
+          <div class="info-key">韓国担当</div>
+          <div class="info-val">ホン・ジヘン · キム・ミジョン · チョン・スア</div>
+        </div>
+        <div class="info-row">
+          <div class="info-key">15:00~17:00</div>
+          <div class="info-val">相談管理・個別指導見学 + Q&A <span class="place">公徳2</span></div>
+        </div>
+        <div class="info-row">
+          <div class="info-key">17:00~17:40</div>
+          <div class="info-val">移動</div>
+        </div>
+        <div class="info-row">
+          <div class="info-key">17:40~18:00</div>
+          <div class="info-val">本社オフィス見学・追加Q&A <span class="place">本社</span></div>
+        </div>
+        <div class="info-row">
+          <div class="info-key">18:00~</div>
+          <div class="info-val">夕食 — MEIKO本社メンバー合流 <span class="place">未定</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ATTENDANCE -->
+  <div class="section">
+    <div class="section-label">参加状況</div>
+    <div class="card" style="padding: 0; overflow: hidden;">
+      <div class="attend-wrap">
+        <table class="attend-table">
+          <colgroup>
+            <col class="col-name">
+            <col style="width:140px">
+            <col class="col-item"><col class="col-item"><col class="col-item">
+            <col class="col-item"><col class="col-item"><col class="col-item">
+            <col class="col-item">
+          </colgroup>
+          <thead>
+            <tr>
+              <th>氏名</th>
+              <th>部署/役職</th>
+              <th>4/27<br>テチ校舎</th>
+              <th>4/27<br>夕食</th>
+              <th>4/28<br>会議_Encourage</th>
+              <th>4/28<br>昼食</th>
+              <th>4/28<br>会議_IT</th>
+              <th>4/28<br>公徳2</th>
+              <th>4/28<br>夕食</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>고승재</td><td>CEO</td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td></td><td><span class="dot"></span></td></tr>
+            <tr><td>안은현</td><td>CA/HR 本部長</td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td></td><td><span class="dot"></span></td></tr>
+            <tr><td>김기태</td><td>経営管理/協力室 本部長</td><td><span class="dot"></span></td><td><span class="dot"></span></td><td></td><td><span class="dot"></span></td><td></td><td></td><td><span class="dot"></span></td></tr>
+            <tr><td>김태석</td><td>直営 本部長</td><td><span class="dot"></span></td><td><span class="dot"></span></td><td></td><td><span class="dot"></span></td><td></td><td></td><td></td></tr>
+            <tr><td>홍지헌</td><td>FC 本部長</td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td></td><td></td><td><span class="dot"></span></td><td><span class="dot"></span></td></tr>
+            <tr><td>김미정</td><td>FC チームリーダー</td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td></td><td></td><td><span class="dot"></span></td><td><span class="dot"></span></td></tr>
+            <tr><td>장재연</td><td>HR チームリーダー</td><td></td><td></td><td><span class="dot"></span></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>모유경</td><td>教育開発 チームリーダー</td><td></td><td></td><td><span class="dot"></span></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>이재근</td><td>未来企画室 本部長</td><td></td><td></td><td></td><td></td><td><span class="dot"></span></td><td></td><td></td></tr>
+            <tr><td>지준호</td><td>IT 本部長</td><td></td><td></td><td></td><td></td><td><span class="dot"></span></td><td></td><td><span class="dot"></span></td></tr>
+            <tr><td>나호정</td><td>IT 主任</td><td></td><td></td><td></td><td></td><td><span class="dot"></span></td><td></td><td></td></tr>
+            <tr><td>이승현</td><td>日本事業チーム リーダー</td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td></td><td><span class="dot"></span></td></tr>
+            <tr><td>정수아</td><td>代理</td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td></td><td></td><td><span class="dot"></span></td><td><span class="dot"></span></td></tr>
+            <tr class="meiko-row"><td>齋藤</td><td>本部長</td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td></td><td><span class="dot"></span></td></tr>
+            <tr class="meiko-row"><td>浅水</td><td>副本部長</td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td></td><td><span class="dot"></span></td></tr>
+            <tr class="meiko-row"><td>遠藤</td><td>IT部長</td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td></td><td><span class="dot"></span></td></tr>
+            <tr class="meiko-row"><td>岡</td><td>情報システム部長</td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td></td><td><span class="dot"></span></td></tr>
+            <tr class="meiko-row"><td>伊藤</td><td>事業戦略室長</td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td></td><td><span class="dot"></span></td></tr>
+            <tr class="meiko-row"><td>岩本</td><td>オペレーション部長</td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td></td><td><span class="dot"></span></td></tr>
+            <tr class="meiko-row"><td>松尾</td><td>東海北陸カンパニープレジデント</td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td></td><td><span class="dot"></span></td></tr>
+            <tr class="meiko-row"><td>奥村</td><td>未来教育開発室長</td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td></td><td><span class="dot"></span></td></tr>
+            <tr class="meiko-row"><td>小松原</td><td>オーナー</td><td></td><td></td><td></td><td></td><td></td><td><span class="dot"></span></td><td><span class="dot"></span></td></tr>
+            <tr class="meiko-row"><td>教室長1</td><td>教室長</td><td></td><td></td><td></td><td></td><td></td><td><span class="dot"></span></td><td><span class="dot"></span></td></tr>
+            <tr class="meiko-row"><td>教室長2</td><td>教室長</td><td></td><td></td><td></td><td></td><td></td><td><span class="dot"></span></td><td><span class="dot"></span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="padding:.6rem 1.25rem;border-top:1px solid var(--border);display:flex;gap:16px;font-size:11px;color:var(--text-tertiary);">
+        <span><span class="dot" style="width:7px;height:7px;background:#1A5C3A;margin-right:5px;"></span>MEIKO</span>
+        <span><span class="dot" style="width:7px;height:7px;margin-right:5px;"></span>NEXCUBE</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  NEXCUBE × MEIKO &nbsp;·&nbsp; 2026.04.27–28
+</footer>
+
+</body>
+</html>
